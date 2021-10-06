@@ -62,7 +62,8 @@ const useStyles = makeStyles((theme) => ({
     "& :hover": {
       color: "white",
       fontWeight: "800",
-      fontSize:"18px"
+      fontSize:"16px",
+      
     },
     "&.active": {
       color: "#63231c",
@@ -85,10 +86,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   DrawerLables: {
-    fontFamily: "Poppins",
-    fontStyle: "normal",
-    fontSize: "16px",
-    fontWeight: "bold",
+    fontFamily: "Rubik, sans-serif",
     display: "flex",
     [theme.breakpoints.up("sm") && theme.breakpoints.down("sm")]: {
       display: "none",
@@ -145,6 +143,8 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("md")]: {
       paddingLeft: "32px",
     },
+    backgroundColor: "inherit",
+    
   },
   avatar: {
     height: "48px",
@@ -154,6 +154,14 @@ const useStyles = makeStyles((theme) => ({
     height: "30px",
     width: "30px",
   },
+  NavButton:{
+    "& :hover": {
+      color: "white",
+      fontWeight: "800",
+    
+      backgroundColor:"#de8071"
+    },
+  }
 }));
 
 export default useStyles;

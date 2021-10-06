@@ -12,24 +12,20 @@ async function getUserDetails(uID,email){
         .get()
         .then((doc)=>{
             var userData=doc.data();
+            //console.log("post office ",userData.postOffice.id)
             return userData;
         })
         .catch((e)=>{
             console.log("Error occured");
             return null;
         })
-
 }
 export function* getUserDetailsSaga(data){
     const currentUserID=data.data.uID;
     const currentUserEmail=data.data.email;
-    // console.log("saga -",currentUserEmail,currentUserID)
     try {
-        let result = yield call(getUserDetails,currentUserID,currentUserEmail);
-        console.log("res ",result)
-        //const userHierarchy = getAllowedUserHierarchy(result);
-        yield put(authorizationSuccess(result));
+        let data = yield call(getUserDetails,currentUserID,currentUserEmail);
+        yield put(authorizationSuccess(data,currentUserID,currentUserEmail));
   } catch (e) {
-        //yield put(fetchUserFailureAction(e.toString()));
   }
 }
